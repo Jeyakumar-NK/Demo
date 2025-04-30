@@ -1,0 +1,82 @@
+**Aggregate Functions (operate on a set of rows and return a single value):**
+
+* **`COUNT()`:** Returns the number of rows in a set. You've already seen `COUNT(*)`, but you can also use `COUNT(column_name)` to count non-null values in a specific column or `COUNT(DISTINCT column_name)` to count unique non-null values.
+* **`SUM()`:** Calculates the sum of values in a numeric column.
+* **`AVG()`:** Calculates the average of values in a numeric column.
+* **`MIN()`:** Returns the minimum value in a column.
+* **`MAX()`:** Returns the maximum value in a column.
+* **`GROUP_CONCAT()` (MySQL) / `STRING_AGG()` (PostgreSQL, SQL Server):** Concatenates values from multiple rows into a single string, often used within `GROUP BY` clauses.
+
+**Scalar Functions (operate on individual values and return a single value per input value):**
+
+**Numeric Functions:**
+
+* **`ROUND(number, decimals)`:** Rounds a number to a specified number of decimal places. You mentioned this one!
+* **`CEIL(number)` / `CEILING(number)`:** Returns the smallest integer greater than or equal to a number (rounds up).
+* **`FLOOR(number)`:** Returns the largest integer less than or equal to a number (rounds down).
+* **`ABS(number)`:** Returns the absolute value of a number.
+* **`MOD(numerator, denominator)` / `%(numerator, denominator)` (syntax varies):** Returns the remainder of a division operation.
+* **`POWER(base, exponent)`:** Returns the value of a number raised to a power.
+* **`SQRT(number)`:** Returns the square root of a number.
+
+**String Functions:**
+
+* **`LENGTH(string)` / `LEN(string)` (syntax varies):** Returns the length of a string.
+* **`UPPER(string)`:** Converts a string to uppercase.
+* **`LOWER(string)`:** Converts a string to lowercase.
+* **`TRIM([LEADING | TRAILING | BOTH] [characters] FROM string)`:** Removes leading, trailing, or both specified characters (or whitespace by default) from a string.
+* **`LTRIM(string)`:** Removes leading whitespace from a string.
+* **`RTRIM(string)`:** Removes trailing whitespace from a string.
+* **`SUBSTRING(string, start, length)` / `SUBSTR(string, start, length)` (syntax varies):** Extracts a substring of a specified length starting from a given position.
+* **`LEFT(string, length)`:** Returns the leftmost characters of a string.
+* **`RIGHT(string, length)`:** Returns the rightmost characters of a string.
+* **`CONCAT(string1, string2, ...)` / `||` (syntax varies):** Concatenates two or more strings.
+* **`REPLACE(string, substring_to_replace, replacement_substring)`:** Replaces all occurrences of a substring within a string with another substring.
+* **`INSTR(string, substring)` / `LOCATE(substring, string)` / `POSITION(substring IN string)` (syntax varies):** Returns the starting position of a substring within a string.
+
+**Date and Time Functions:**
+
+* **`NOW()` / `GETDATE()` / `CURRENT_TIMESTAMP` (syntax varies):** Returns the current date and time.
+* **`CURDATE()` / `CURRENT_DATE` (syntax varies):** Returns the current date.
+* **`CURTIME()` / `CURRENT_TIME` (syntax varies):** Returns the current time.
+* **`DATE(datetime_expression)`:** Extracts the date part from a datetime value.
+* **`TIME(datetime_expression)`:** Extracts the time part from a datetime value.
+* **`YEAR(date_expression)`:** Extracts the year from a date.
+* **`MONTH(date_expression)`:** Extracts the month from a date.
+* **`DAY(date_expression)` / `DAYOFMONTH(date_expression)` (syntax varies):** Extracts the day of the month from a date.
+* **`HOUR(time_expression)`:** Extracts the hour from a time.
+* **`MINUTE(time_expression)`:** Extracts the minute from a time.
+* **`SECOND(time_expression)`:** Extracts the second from a time.
+* **`DATE_ADD(date, INTERVAL value unit)` / `DATEADD(unit, value, date)` (syntax varies):** Adds a specified time interval to a date.
+* **`DATE_SUB(date, INTERVAL value unit)` / `DATEADD(unit, -value, date)` (syntax varies):** Subtracts a specified time interval from a date.
+* **`DATEDIFF(end_date, start_date)`:** Returns the difference between two dates (in days, typically).
+
+**Conversion Functions:**
+
+* **`CAST(expression AS datatype)`:** Explicitly converts an expression from one data type to another.
+* **`CONVERT(expression, datatype)` (syntax varies):** Another way to explicitly convert data types.
+
+**Conditional Functions:**
+
+* **`CASE WHEN condition1 THEN result1 [WHEN condition2 THEN result2 ...] [ELSE result_else] END`:** Allows you to define conditional logic within your SQL queries.
+* **`COALESCE(expression1, expression2, ...)`:** Returns the first non-null expression in the list.
+* **`NULLIF(expression1, expression2)`:** Returns `NULL` if `expression1` is equal to `expression2`, otherwise returns `expression1`.
+
+**Window Functions (perform calculations across a set of table rows that are related to the current row):**
+
+These are more advanced but very powerful for tasks like ranking, running totals, and moving averages. Examples include:
+
+* **`ROW_NUMBER()`:** Assigns a unique sequential integer to each row within a partition of a result set.
+* **`RANK()`:** Assigns a rank to each row within a partition, with gaps for ties.
+* **`DENSE_RANK()`:** Assigns a rank to each row within a partition, without gaps for ties.
+* **`LAG(column, offset, default)`:** Accesses data from a previous row in the same result set.
+* **`LEAD(column, offset, default)`:** Accesses data from a subsequent row in the same result set.
+* **`SUM() OVER (PARTITION BY ... ORDER BY ...)`:** Calculates a running total.
+* **`AVG() OVER (PARTITION BY ... ORDER BY ...)`:** Calculates a moving average.
+
+**Important Notes:**
+
+* The specific functions available and their syntax can vary slightly depending on the database management system you are using (e.g., MySQL, PostgreSQL, SQL Server, Oracle).
+* It's always a good idea to consult the documentation for your specific database system for the most accurate and detailed information about available functions and their usage.
+
+This list provides a good starting point for exploring the wealth of useful functions SQL offers beyond basic querying! Let me know if you'd like to dive deeper into any specific category or function.
